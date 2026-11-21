@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🚖 Apex Cab - Modern Taxi & Chauffeur Booking Website
 
-First, run the development server:
+
+A full-featured, responsive, production-ready Taxi & Airport Chauffeur Booking web application built with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, and **Tailwind CSS**.
+
+
+## ✨ Features
+
+- **🚖 Interactive Ride Booking Widget**:
+  - Ride Types: One-Way, Round Trip, Airport Transfer, and Hourly Chauffeur Hire.
+  - Live pickup shortcuts (JFK Airport, LGA, Grand Central, Times Square, etc.).
+  - Free Flight Delay Tracking telemetry for airport trips.
+  - Interactive passenger count (1-8) and luggage selector (0-6).
+  - Dynamic vehicle selection with live fare calculation.
+- **💰 Real-Time Fare Estimator & Transparent Pricing**:
+  - Live route cost calculations with zero surge fees.
+  - Popular fixed-rate route cards (Downtown to JFK, Midtown to LGA, etc.) with 1-click booking.
+  - Fully transparent breakdowns (tolls & taxes included, free 45-min airport waiting time).
+- **🏎️ Fleet Showcase & Category Filters**:
+  - Categories: Economy Sedans, Executive Business Class, Family SUVs, Luxury Vans, and Eco Green Electrics.
+  - Specifications: passenger capacity, luggage volume, amenities, base fares, and per-km rates.
+  - One-click "Select & Book" button that pre-selects the vehicle in the booking widget.
+- **🛡️ Booking Confirmation Dialog (Modal)**:
+  - Accessible native `<dialog>` implementation with backdrop blur and keyboard dismissal.
+  - Step 1: Review trip summary & enter passenger contact info (name, mobile phone, email, payment preference, special notes).
+  - Step 2: Instant booking confirmation with reference ID (`#APX-XXXXXX`), verified route summary, and printable receipt.
+- **🌟 Services & Solutions**:
+  - Airport Drop & Pickup, Point-to-Point City Rides, Hourly Hire, Corporate Accounts, Outstation Trips, and Event Charters.
+- **📋 Trust, Reviews & FAQ**:
+  - Safety & verification statistics (1.2M+ Trips, 4.9★ rating, 99.4% on-time).
+  - Passenger reviews from business travelers, tourists, and families.
+  - Interactive FAQ accordion for common ride questions.
+  - 24/7 hotline dispatch integration.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router & Turbopack)
+- **Library**: [React 19](https://react.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+### 2. Run the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+### 4. Start Production Server
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 5. Lint & Typecheck
 
-## Deploy on Vercel
+```bash
+npm run lint
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 📁 Project Structure
+
+```
+Taxi-Website/
+├── public/                 # Static assets & icons
+├── src/
+│   ├── app/
+│   │   ├── globals.css     # Global theme & dialog backdrop styles
+│   │   ├── layout.tsx      # Root HTML layout, font setup & SEO metadata
+│   │   └── page.tsx        # Main homepage coordinating all taxi components
+│   ├── components/
+│   │   ├── Navbar.tsx             # Sticky navigation with 24/7 hotline & mobile menu
+│   │   ├── HeroBooking.tsx        # Hero banner & interactive booking widget
+│   │   ├── FleetSection.tsx       # Vehicle catalog with category filter tabs
+│   │   ├── ServicesSection.tsx    # Core mobility services grid
+│   │   ├── FareEstimatorSection.tsx # Popular routes table & flat pricing
+│   │   ├── WhyChooseUs.tsx        # Safety standards, statistics & trust pillars
+│   │   ├── Testimonials.tsx       # Passenger reviews & star ratings
+│   │   ├── FAQSection.tsx         # Interactive FAQ accordion
+│   │   ├── BookingModal.tsx       # Accessible reservation modal & confirmation receipt
+│   │   └── Footer.tsx             # Footer, directory links, newsletter promo & license info
+│   ├── data/
+│   │   └── taxiData.ts     # Mock fleet data, routes, services, testimonials & company info
+│   └── types/
+│       └── taxi.ts         # TypeScript interfaces for vehicles, bookings & services
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+
+---
+
+## 🎨 Customization
+
+- **Pricing & Vehicles**: Edit `src/data/taxiData.ts` to update vehicle types, base rates, per-kilometer pricing, and photos.
+- **Company Branding**: Modify `COMPANY_INFO` in `src/data/taxiData.ts` to update your company name, dispatch phone number, address, and operating cities.
+# Car-Website
