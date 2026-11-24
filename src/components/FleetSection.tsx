@@ -138,7 +138,7 @@ export default function FleetSection({ onSelectVehicle }: FleetSectionProps) {
                   <button
                     type="button"
                     onClick={() => onSelectVehicle(vehicle.id)}
-                    className="w-full py-3 px-4 rounded-xl bg-zinc-900 hover:bg-amber-400 hover:text-zinc-950 font-bold text-xs sm:text-sm text-white transition-all flex items-center justify-center gap-2 group/btn cursor-pointer shadow-sm"
+                    className="w-full py-3 px-4 rounded-full bg-blue-600 hover:bg-blue-700 font-medium text-xs sm:text-sm text-white transition-all flex items-center justify-center gap-2 group/btn cursor-pointer shadow-md shadow-blue-600/20 active:scale-98"
                   >
                     Select & Book Vehicle
                     <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />

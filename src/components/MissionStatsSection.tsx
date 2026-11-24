@@ -34,7 +34,7 @@ export default function MissionStatsSection() {
             <p className="text-base sm:text-lg text-zinc-600 font-normal leading-relaxed">
               Experience the pinnacle of reliable, prompt, and comfortable cab mobility crafted for city commuters, business executives, and world travelers.
               Whether heading to an early-morning airport flight, attending an executive summit, or traveling safely across town with family,
-              Dream Drive pairs spotless, air-conditioned cabs with vetted professional chauffeurs straight to your pickup point with zero waiting delays.
+              Uttarakhand Texi Service pairs spotless, air-conditioned cabs with vetted professional chauffeurs straight to your pickup point with zero waiting delays.
             </p>
           </div>
         </div>

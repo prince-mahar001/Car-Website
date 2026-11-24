@@ -132,7 +132,7 @@ export default function TopPicksSection({ onSelectCar }: TopPicksProps) {
               type="button"
               onClick={handleNext}
               aria-label="Next cab"
-              className="w-10 h-10 rounded-full border border-zinc-950 bg-zinc-950 hover:bg-zinc-800 flex items-center justify-center text-white transition-colors cursor-pointer shadow-xs active:scale-95"
+              className="w-10 h-10 rounded-full border border-blue-600 bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-colors cursor-pointer shadow-xs active:scale-95"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -238,7 +238,7 @@ export default function TopPicksSection({ onSelectCar }: TopPicksProps) {
                 <button
                   type="button"
                   onClick={() => handleBook(car)}
-                  className="w-full rounded-full bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs sm:text-sm py-3 transition-all cursor-pointer shadow-xs active:scale-98 flex items-center justify-center gap-2 group/btn"
+                  className="w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs sm:text-sm py-3 transition-all cursor-pointer shadow-md shadow-blue-600/20 active:scale-98 flex items-center justify-center gap-2 group/btn"
                 >
                   <span>Book This Cab</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />

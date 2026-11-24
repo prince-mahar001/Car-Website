@@ -2,7 +2,6 @@
 
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, ArrowRight, Zap, Users, Fuel, Sparkles, Pause, Play } from 'lucide-react';
 import { ChevronLeft, ChevronRight, ArrowRight, Zap, Users, Fuel, ShieldCheck, Pause, Play } from 'lucide-react';
 import { Vehicle } from '@/types/taxi';
 
@@ -219,7 +218,6 @@ export default function PerfectRideSection({ onSelectCar }: PerfectRideProps) {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 text-zinc-800 text-xs font-semibold mb-3">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
               <span>Verified Taxi Fleet</span>
             </div>
@@ -268,7 +266,7 @@ export default function PerfectRideSection({ onSelectCar }: PerfectRideProps) {
                 type="button"
                 onClick={handleScrollRight}
                 aria-label="Scroll right in fleet carousel"
-                className="w-10 h-10 rounded-full border border-zinc-950 bg-zinc-950 hover:bg-zinc-800 flex items-center justify-center text-white transition-colors cursor-pointer shadow-xs active:scale-95"
+                className="w-10 h-10 rounded-full border border-blue-600 bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-colors cursor-pointer shadow-xs active:scale-95"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -370,12 +368,12 @@ export default function PerfectRideSection({ onSelectCar }: PerfectRideProps) {
                   </div>
                 </div>
 
-                {/* Action CTA: Full-width dark pill */}
+                {/* Action CTA: Full-width blue pill */}
                 <div className="mt-6 pt-2">
                   <button
                     type="button"
                     onClick={() => handleCarClick(car)}
-                    className="w-full rounded-full bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs sm:text-sm py-3 transition-all cursor-pointer shadow-xs active:scale-98 flex items-center justify-center gap-2 group/btn"
+                    className="w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs sm:text-sm py-3 transition-all cursor-pointer shadow-md shadow-blue-600/20 active:scale-98 flex items-center justify-center gap-2 group/btn"
                   >
                     <span>Book {car.brand} Cab</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
@@ -467,13 +465,13 @@ export default function PerfectRideSection({ onSelectCar }: PerfectRideProps) {
                   </div>
                 </div>
 
-                {/* Action CTA: Full-width dark pill */}
+                {/* Action CTA: Full-width blue pill */}
                 <div className="mt-6 pt-2">
                   <button
                     type="button"
                     tabIndex={-1}
                     onClick={() => handleCarClick(car)}
-                    className="w-full rounded-full bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs sm:text-sm py-3 transition-all cursor-pointer shadow-xs active:scale-98 flex items-center justify-center gap-2 group/btn"
+                    className="w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs sm:text-sm py-3 transition-all cursor-pointer shadow-md shadow-blue-600/20 active:scale-98 flex items-center justify-center gap-2 group/btn"
                   >
                     <span>Book {car.brand} Cab</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />

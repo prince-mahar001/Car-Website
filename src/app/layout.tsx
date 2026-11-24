@@ -13,11 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dream Drive | 24/7 Taxi Booking & Airport Cab Service",
+  title: "Uttarakhand Texi Service | 24/7 Taxi Booking & Airport Cab Service",
   description: "Book reliable fixed-rate city cabs, executive sedans, and airport taxi transfers. Instant online taxi booking with 24/7 dispatch, live GPS tracking, and zero surge pricing.",
-  keywords: ["taxi booking", "cab service", "airport taxi", "city cabs", "chauffeur cab", "24/7 taxi", "fixed fare cab", "Dream Drive"],
+  keywords: ["taxi booking", "cab service", "airport taxi", "city cabs", "chauffeur cab", "24/7 taxi", "fixed fare cab", "Uttarakhand Texi Service"],
   openGraph: {
-    title: "Dream Drive | 24/7 Taxi Booking & Airport Cab Service",
+    title: "Uttarakhand Texi Service | 24/7 Taxi Booking & Airport Cab Service",
     description: "Book reliable fixed-rate city cabs, executive sedans, and airport taxi transfers with zero surge pricing.",
     type: "website"
   }

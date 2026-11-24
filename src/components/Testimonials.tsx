@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Quote, Star, CheckCircle2 } from 'lucide-react';
 import { ChevronLeft, ChevronRight, Quote, CheckCircle2 } from 'lucide-react';
 
 interface Testimonial {
@@ -35,7 +34,7 @@ const TESTIMONIAL_LIST: Testimonial[] = [
     name: 'David Chen',
     role: 'Tech Founder & Investor',
     location: 'San Francisco, CA',
-    comment: 'Dream Drive is in a league of its own. When my incoming flight touched down, the Audi R8 was waiting curbside with my preferred climate and audio settings ready. Unmatched attention to detail.',
+    comment: 'Uttarakhand Texi Service is in a league of its own. When my incoming flight touched down, the cab was waiting curbside with my preferred climate and audio settings ready. Unmatched attention to detail.',
     avatarText: 'DC'
   }
 ];
@@ -62,7 +61,7 @@ export default function Testimonials() {
               Trusted by Thousands
             </h2>
             <p className="mt-2 text-sm sm:text-base text-zinc-500 max-w-xl">
-              Discover why discerning drivers, executives, and world travelers make Dream Drive their first call.
+              Discover why discerning travelers, families, and executives make Uttarakhand Texi Service their first call.
             </p>
           </div>
 
@@ -80,7 +79,7 @@ export default function Testimonials() {
               type="button"
               onClick={handleNext}
               aria-label="Next testimonial"
-              className="w-10 h-10 rounded-full border border-zinc-950 bg-zinc-950 hover:bg-zinc-800 flex items-center justify-center text-white transition-colors cursor-pointer shadow-xs active:scale-95"
+              className="w-10 h-10 rounded-full border border-blue-600 bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-colors cursor-pointer shadow-xs active:scale-95"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -103,11 +102,6 @@ export default function Testimonials() {
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <Quote className="w-6 h-6 text-zinc-300 fill-zinc-200" />
-                    <div className="flex items-center gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
                     <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/80">
                       5.0 Rating • Verified
                     </span>

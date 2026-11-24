@@ -93,7 +93,7 @@ export default function Home() {
 
       </main>
 
-      {/* 10. Clean 4-Column Dream Drive Brand Footer */}
+      {/* 10. Clean 4-Column Uttarakhand Texi Service Brand Footer */}
       <Footer />
 
       {/* 11. Interactive Booking Reservation Confirmation Modal */}

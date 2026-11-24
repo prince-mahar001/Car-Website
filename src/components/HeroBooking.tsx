@@ -146,7 +146,7 @@ export default function HeroBooking({ onInitiateBooking }: HeroBookingProps) {
 
         {/* Subtitle */}
         <p className="mt-4 text-sm sm:text-base text-zinc-500 font-normal max-w-xl mx-auto leading-relaxed">
-          Dream Drive offers instant fixed-fare taxi bookings, airport transfers, and<br className="hidden sm:inline" />
+          Uttarakhand Texi Service offers instant fixed-fare taxi bookings, airport transfers, and<br className="hidden sm:inline" />
           professional TLC chauffeurs with 24/7 live tracking and zero surge surprises
         </p>
 
@@ -155,7 +155,7 @@ export default function HeroBooking({ onInitiateBooking }: HeroBookingProps) {
           <button
             type="button"
             onClick={handleOpenBooking}
-            className="rounded-full bg-zinc-950 hover:bg-zinc-850 text-white font-medium text-xs sm:text-sm px-7 py-3.5 shadow-sm transition-all cursor-pointer active:scale-95"
+            className="rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs sm:text-sm px-7 py-3.5 shadow-md shadow-blue-600/25 transition-all cursor-pointer active:scale-95"
           >
             Book Your Cab
           </button>

@@ -8,14 +8,14 @@ interface FaqItem {
   answer: string;
 }
 
-const DREAM_DRIVE_FAQS: FaqItem[] = [
+const UTTARAKHAND_TEXI_FAQS: FaqItem[] = [
   {
     question: 'How quickly will my taxi arrive after booking?',
     answer: 'For on-demand city bookings, our intelligent dispatch system pairs you with the closest licensed driver—typically arriving at your doorstep within 5 to 10 minutes. For scheduled rides and airport transfers, your cab is guaranteed to arrive at least 5 minutes prior to your selected pickup time.'
   },
   {
     question: 'Are taxi fares fixed or do they surge during peak traffic and rain?',
-    answer: 'All Dream Drive taxi fares are 100% locked upfront. Once you enter your pickup and destination and confirm your booking, that exact price is guaranteed. We never apply surge multipliers, rain surcharges, or peak demand penalties.'
+    answer: 'All Uttarakhand Texi Service fares are 100% locked upfront. Once you enter your pickup and destination and confirm your booking, that exact price is guaranteed. We never apply surge multipliers, rain surcharges, or peak demand penalties.'
   },
   {
     question: 'How do airport pickups and flight delay tracking work?',
@@ -72,7 +72,7 @@ export default function FAQSection() {
 
           {/* Right Column: High-Contrast Accordion */}
           <div className="lg:col-span-7 space-y-3">
-            {DREAM_DRIVE_FAQS.map((faq, index) => {
+            {UTTARAKHAND_TEXI_FAQS.map((faq, index) => {
               const isOpen = openIndex === index;
               return (
                 <div

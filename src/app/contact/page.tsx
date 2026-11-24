@@ -273,7 +273,7 @@ export default function ContactPage() {
                       <button
                         type="button"
                         onClick={handleBookCabAction}
-                        className="rounded-full bg-zinc-950 hover:bg-zinc-800 text-white font-semibold text-xs px-6 py-3 transition-all cursor-pointer shadow-xs"
+                        className="rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs px-6 py-3 transition-all cursor-pointer shadow-md shadow-blue-600/20 active:scale-98"
                       >
                         Book A Cab Now
                       </button>
@@ -402,7 +402,7 @@ export default function ContactPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full rounded-full bg-zinc-950 hover:bg-zinc-800 disabled:opacity-60 text-white font-semibold text-xs sm:text-sm py-3.5 px-6 shadow-md active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer group"
+                        className="w-full rounded-full bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white font-semibold text-xs sm:text-sm py-3.5 px-6 shadow-md shadow-blue-600/25 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer group"
                       >
                         {isSubmitting ? (
                           <>

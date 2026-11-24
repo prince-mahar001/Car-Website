@@ -162,7 +162,6 @@ export const SERVICES: ServiceItem[] = [
     title: 'Weddings & Special Events',
     shortDesc: 'Coordinated guest transportation, luxury bridal sedans, and group shuttles for memorable occasions.',
     fullDesc: 'Make your special day flawless. From pristine white luxury sedans for the couple to spacious executive passenger vans for family and guests, our coordinators handle the logistics effortlessly.',
-    iconName: 'Sparkles',
     iconName: 'Car',
     perks: ['Pristine event vehicle prep', 'Custom ribbon & decor options', 'Synchronized group fleet']
   }
@@ -226,11 +225,11 @@ export const FAQS: FaqItem[] = [
 ];
 
 export const COMPANY_INFO = {
-  name: 'Dream Drive',
-  tagline: 'Drive Your Dream Car Anytime Anywhere.',
+  name: 'Uttarakhand Texi Service',
+  tagline: 'Reliable 24/7 Cab & Taxi Service Across Uttarakhand.',
   phone: '+1 (800) 555-8294',
-  phoneDisplay: '+1 (800) 555-DREAM',
-  email: 'concierge@dreamdrive.com',
+  phoneDisplay: '+1 (800) 555-TAXI',
+  email: 'concierge@uttarakhandtexiservice.com',
   address: '450 Lexington Ave, Suite 1200, New York, NY 10017',
   operatingHours: '24 Hours a Day / 7 Days a Week / 365 Days a Year',
   operatingCities: ['New York City', 'Brooklyn & Queens', 'New Jersey Metro', 'Long Island', 'Westchester', 'Miami Corridor']

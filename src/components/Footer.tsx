@@ -26,14 +26,17 @@ export default function Footer() {
           
           {/* Col 1: Brand Info & Socials */}
           <div className="lg:col-span-4 space-y-4">
-            <Link href="/" className="inline-block">
-              <span className="font-extrabold text-2xl tracking-tight text-zinc-950">
-                Dream Drive
+            <Link href="/" className="inline-flex flex-col group">
+              <span className="font-black text-xl sm:text-2xl tracking-tight text-zinc-950 leading-none">
+                UTTARAKHAND
+              </span>
+              <span className="text-[10px] sm:text-xs font-semibold tracking-widest text-zinc-500 group-hover:text-blue-600 transition-colors uppercase mt-1">
+                Taxi Service
               </span>
             </Link>
 
             <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed max-w-sm">
-              Dream Drive provides reliable 24/7 taxi booking, airport transfers, and licensed chauffeur cab services with locked fares and live GPS tracking.
+              Uttarakhand Texi Service provides reliable 24/7 taxi booking, airport transfers, and licensed chauffeur cab services with locked fares and live GPS tracking.
             </p>
 
             {/* Social Media Circular Buttons */}
@@ -128,7 +131,7 @@ export default function Footer() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-2.5 px-4 rounded-full bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs active:scale-98"
+                  className="w-full py-2.5 px-4 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md shadow-blue-600/20 active:scale-98"
                 >
                   <span>Subscribe</span>
                   <ArrowRight className="w-3 h-3" />

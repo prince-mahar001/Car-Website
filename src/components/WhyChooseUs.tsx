@@ -38,7 +38,6 @@ export default function WhyChooseUs() {
       desc: 'Share live trip progress and estimated arrival times with family or colleagues via a single secure SMS tracking link.'
     },
     {
-      icon: <Sparkles className="w-6 h-6 text-amber-500" />,
       icon: <CheckCircle2 className="w-6 h-6 text-emerald-600" />,
       title: 'Pristine Cleanliness Standard',
       desc: 'Every cab is thoroughly sanitized, air conditioned, and equipped with fresh bottled water, phone charging cables, and contactless payment.'

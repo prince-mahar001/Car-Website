@@ -469,7 +469,7 @@ export default function BookingModal({
 
                 <button
                   type="submit"
-                  className="flex-1 rounded-full bg-zinc-950 hover:bg-zinc-800 text-white font-semibold text-xs py-3 px-4 shadow-md active:scale-98 transition-all flex items-center justify-center gap-1.5 group cursor-pointer"
+                  className="flex-1 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs py-3 px-4 shadow-md shadow-blue-600/20 active:scale-98 transition-all flex items-center justify-center gap-1.5 group cursor-pointer"
                 >
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                   <span className="truncate">Confirm Cab (${fare})</span>
@@ -569,7 +569,7 @@ export default function BookingModal({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="w-full sm:w-auto flex-1 px-6 py-3 rounded-full bg-zinc-950 hover:bg-zinc-800 text-white text-xs font-semibold cursor-pointer shadow-sm transition-all"
+                  className="w-full sm:w-auto flex-1 px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold cursor-pointer shadow-md shadow-blue-600/20 transition-all active:scale-98"
                 >
                   Done / Return to Fleet
                 </button>
