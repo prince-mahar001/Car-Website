@@ -225,11 +225,11 @@ export const FAQS: FaqItem[] = [
 ];
 
 export const COMPANY_INFO = {
-  name: 'Uttarakhand Texi Service',
-  tagline: 'Reliable 24/7 Cab & Taxi Service Across Uttarakhand.',
+  name: 'BHIMTAL Taxi Service',
+  tagline: 'Reliable 24/7 Cab & Taxi Service Across Bhimtal & Uttarakhand.',
   phone: '+1 (800) 555-8294',
   phoneDisplay: '+1 (800) 555-TAXI',
-  email: 'concierge@uttarakhandtexiservice.com',
+  email: 'concierge@bhimtaltaxiservice.com',
   address: '450 Lexington Ave, Suite 1200, New York, NY 10017',
   operatingHours: '24 Hours a Day / 7 Days a Week / 365 Days a Year',
   operatingCities: ['New York City', 'Brooklyn & Queens', 'New Jersey Metro', 'Long Island', 'Westchester', 'Miami Corridor']

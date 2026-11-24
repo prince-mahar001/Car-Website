@@ -74,16 +74,16 @@ export default function MissionStatsSection() {
             </h2>
 
             <p className="text-xs sm:text-sm text-zinc-500 font-medium leading-relaxed">
-              Serving Dehradun, Rishikesh, Haridwar, Nainital, airport connections, and inter-city routes across Uttarakhand.
+              Serving Bhimtal, Nainital, Kathgodam, Haldwani, airport connections, and inter-city routes across Uttarakhand.
             </p>
           </div>
 
           <div className="lg:col-span-7">
             <div className="p-6 sm:p-8 rounded-3xl bg-zinc-50/80 border border-zinc-200/80 shadow-xs space-y-4">
               <p className="text-sm sm:text-base text-zinc-700 font-normal leading-relaxed">
-                Experience the pinnacle of reliable, prompt, and comfortable cab mobility crafted for city commuters, business executives, and Uttarakhand travelers.
+                Experience the pinnacle of reliable, prompt, and comfortable cab mobility crafted for city commuters, business executives, and Bhimtal travelers.
                 Whether heading to an early-morning airport flight, attending an executive summit, or exploring scenic hill stations safely with family,
-                <strong> Uttarakhand Taxi Service</strong> pairs spotless, air-conditioned cabs with vetted professional chauffeurs straight to your pickup point with zero waiting delays.
+                <strong> BHIMTAL Taxi Service</strong> pairs spotless, air-conditioned cabs with vetted professional chauffeurs straight to your pickup point with zero waiting delays.
               </p>
 
               {/* 3 Value Verification Badges */}

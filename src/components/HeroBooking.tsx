@@ -146,7 +146,7 @@ export default function HeroBooking({ onInitiateBooking }: HeroBookingProps) {
 
         {/* Subtitle */}
         <p className="mt-4 text-sm sm:text-base text-zinc-500 font-normal max-w-xl mx-auto leading-relaxed">
-          Uttarakhand Texi Service offers instant fixed-fare taxi bookings, airport transfers, and<br className="hidden sm:inline" />
+          BHIMTAL Taxi Service offers instant fixed-fare taxi bookings, airport transfers, and<br className="hidden sm:inline" />
           professional TLC chauffeurs with 24/7 live tracking and zero surge surprises
         </p>
 

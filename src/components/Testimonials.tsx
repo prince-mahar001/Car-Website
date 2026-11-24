@@ -34,7 +34,7 @@ const TESTIMONIAL_LIST: Testimonial[] = [
     name: 'David Chen',
     role: 'Tech Founder & Investor',
     location: 'San Francisco, CA',
-    comment: 'Uttarakhand Texi Service is in a league of its own. When my incoming flight touched down, the cab was waiting curbside with my preferred climate and audio settings ready. Unmatched attention to detail.',
+    comment: 'BHIMTAL Taxi Service is in a league of its own. When my incoming flight touched down, the cab was waiting curbside with my preferred climate and audio settings ready. Unmatched attention to detail.',
     avatarText: 'DC'
   }
 ];
@@ -61,7 +61,7 @@ export default function Testimonials() {
               Trusted by Thousands
             </h2>
             <p className="mt-2 text-sm sm:text-base text-zinc-500 max-w-xl">
-              Discover why discerning travelers, families, and executives make Uttarakhand Texi Service their first call.
+              Discover why discerning travelers, families, and executives make BHIMTAL Taxi Service their first call.
             </p>
           </div>
 

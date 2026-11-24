@@ -187,10 +187,10 @@ export default function Navbar({ onBookClick }: NavbarProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             
-            {/* Brand Logo: Stacked UTTARAKHAND + Taxi Service */}
+            {/* Brand Logo: Stacked BHIMTAL + Taxi Service */}
             <Link href="/" className="flex flex-col justify-center group py-1">
               <span className="font-black text-lg sm:text-2xl tracking-tight text-zinc-950 leading-none">
-                UTTARAKHAND
+                BHIMTAL
               </span>
               <span className="text-[10px] sm:text-xs font-semibold tracking-widest text-zinc-500 group-hover:text-[#155DFC] transition-colors uppercase mt-1">
                 Taxi Service
@@ -305,7 +305,7 @@ export default function Navbar({ onBookClick }: NavbarProps) {
               <div className="flex items-center justify-between p-5 border-b border-zinc-150 bg-white">
                 <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex flex-col justify-center">
                   <span className="font-black text-xl tracking-tight text-zinc-950 leading-none">
-                    UTTARAKHAND
+                    BHIMTAL
                   </span>
                   <span className="text-[10px] font-bold tracking-widest text-[#155DFC] uppercase mt-1">
                     Taxi Service

@@ -28,7 +28,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-4">
             <Link href="/" className="inline-flex flex-col group">
               <span className="font-black text-xl sm:text-2xl tracking-tight text-zinc-950 leading-none">
-                UTTARAKHAND
+                BHIMTAL
               </span>
               <span className="text-[10px] sm:text-xs font-semibold tracking-widest text-zinc-500 group-hover:text-[#155DFC] transition-colors uppercase mt-1">
                 Taxi Service
@@ -36,7 +36,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed max-w-sm">
-              Uttarakhand Texi Service provides reliable 24/7 taxi booking, airport transfers, and licensed chauffeur cab services with locked fares and live GPS tracking.
+              BHIMTAL Taxi Service provides reliable 24/7 taxi booking, airport transfers, and licensed chauffeur cab services with locked fares and live GPS tracking.
             </p>
 
             {/* Social Media Circular Buttons */}
