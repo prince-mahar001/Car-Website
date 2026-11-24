@@ -85,7 +85,7 @@ export default function FareEstimatorSection({ onSelectRoute }: FareEstimatorSec
               <button
                 type="button"
                 onClick={() => onSelectRoute(route.from, route.to)}
-                className="w-full py-2.5 px-4 rounded-full bg-blue-600 hover:bg-blue-700 text-xs font-semibold text-white transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-blue-600/20 active:scale-98"
+                className="w-full py-2.5 px-4 rounded-full bg-[#155DFC] hover:bg-[#124ecf] text-xs font-semibold text-white transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-[#155DFC]/20 active:scale-98"
               >
                 <span>Book This Route</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

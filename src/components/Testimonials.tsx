@@ -79,7 +79,7 @@ export default function Testimonials() {
               type="button"
               onClick={handleNext}
               aria-label="Next testimonial"
-              className="w-10 h-10 rounded-full border border-blue-600 bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-colors cursor-pointer shadow-xs active:scale-95"
+              className="w-10 h-10 rounded-full border border-[#155DFC] bg-[#155DFC] hover:bg-[#124ecf] flex items-center justify-center text-white transition-colors cursor-pointer shadow-xs active:scale-95"
             >
               <ChevronRight className="w-4 h-4" />
             </button>

@@ -266,7 +266,7 @@ export default function PerfectRideSection({ onSelectCar }: PerfectRideProps) {
                 type="button"
                 onClick={handleScrollRight}
                 aria-label="Scroll right in fleet carousel"
-                className="w-10 h-10 rounded-full border border-blue-600 bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-colors cursor-pointer shadow-xs active:scale-95"
+                className="w-10 h-10 rounded-full border border-[#155DFC] bg-[#155DFC] hover:bg-[#124ecf] flex items-center justify-center text-white transition-colors cursor-pointer shadow-xs active:scale-95"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -373,7 +373,7 @@ export default function PerfectRideSection({ onSelectCar }: PerfectRideProps) {
                   <button
                     type="button"
                     onClick={() => handleCarClick(car)}
-                    className="w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs sm:text-sm py-3 transition-all cursor-pointer shadow-md shadow-blue-600/20 active:scale-98 flex items-center justify-center gap-2 group/btn"
+                    className="w-full rounded-full bg-[#155DFC] hover:bg-[#124ecf] text-white font-medium text-xs sm:text-sm py-3 transition-all cursor-pointer shadow-md shadow-[#155DFC]/20 active:scale-98 flex items-center justify-center gap-2 group/btn"
                   >
                     <span>Book {car.brand} Cab</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
@@ -471,7 +471,7 @@ export default function PerfectRideSection({ onSelectCar }: PerfectRideProps) {
                     type="button"
                     tabIndex={-1}
                     onClick={() => handleCarClick(car)}
-                    className="w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs sm:text-sm py-3 transition-all cursor-pointer shadow-md shadow-blue-600/20 active:scale-98 flex items-center justify-center gap-2 group/btn"
+                    className="w-full rounded-full bg-[#155DFC] hover:bg-[#124ecf] text-white font-medium text-xs sm:text-sm py-3 transition-all cursor-pointer shadow-md shadow-[#155DFC]/20 active:scale-98 flex items-center justify-center gap-2 group/btn"
                   >
                     <span>Book {car.brand} Cab</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />

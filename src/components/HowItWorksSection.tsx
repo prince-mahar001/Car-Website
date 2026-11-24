@@ -74,7 +74,7 @@ export default function HowItWorksSection() {
           <button
             type="button"
             onClick={handleScrollToBooking}
-            className="inline-flex items-center gap-2 self-start sm:self-auto rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs sm:text-sm px-6 py-3 transition-all cursor-pointer shadow-md shadow-blue-600/20 active:scale-95"
+            className="inline-flex items-center gap-2 self-start sm:self-auto rounded-full bg-[#155DFC] hover:bg-[#124ecf] text-white font-medium text-xs sm:text-sm px-6 py-3 transition-all cursor-pointer shadow-md shadow-[#155DFC]/20 active:scale-95"
           >
             <span>Book A Cab</span>
             <ArrowRight className="w-3.5 h-3.5" />

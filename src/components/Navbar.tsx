@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -23,14 +23,101 @@ interface NavbarProps {
   onBookClick?: () => void;
 }
 
+interface NavItem {
+  id: string;
+  label: string;
+  href: string;
+  sectionId?: string;
+}
+
+const NAV_ITEMS: NavItem[] = [
+  { id: 'home', label: 'Home', href: '/' },
+  { id: 'why-us', label: 'About Us', href: '/#why-us', sectionId: 'why-us' },
+  { id: 'fleet', label: 'Our Fleet', href: '/#fleet', sectionId: 'fleet' },
+  { id: 'services', label: 'Our Services', href: '/#services', sectionId: 'services' },
+  { id: 'top-picks', label: 'Airport Transfers', href: '/#top-picks', sectionId: 'top-picks' },
+  { id: 'contact', label: 'Contact Us', href: '/contact' }
+];
+
 export default function Navbar({ onBookClick }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [activeTab, setActiveTab] = useState<string>('home');
+  const [pillStyle, setPillStyle] = useState<{ left: number; width: number }>({ left: 0, width: 0 });
+
+  const navContainerRef = useRef<HTMLElement | null>(null);
+  const itemRefs = useRef<Map<string, HTMLAnchorElement>>(new Map());
+  const isClickScrolling = useRef(false);
+
   const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Sync activeTab with pathname and hash
+  useEffect(() => {
+    if (pathname === '/contact') {
+      setActiveTab('contact');
+    } else if (pathname === '/') {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && ['why-us', 'fleet', 'services', 'top-picks'].includes(hash)) {
+        setActiveTab(hash);
+      } else {
+        setActiveTab('home');
+      }
+    }
+  }, [pathname]);
+
+  // Recalculate sliding pill position and width
+  const updatePill = () => {
+    const activeEl = itemRefs.current.get(activeTab);
+    const container = navContainerRef.current;
+    if (activeEl && container) {
+      const activeRect = activeEl.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      setPillStyle({
+        left: activeRect.left - containerRect.left,
+        width: activeRect.width
+      });
+    }
+  };
+
+  useEffect(() => {
+    updatePill();
+    window.addEventListener('resize', updatePill);
+    return () => window.removeEventListener('resize', updatePill);
+  }, [activeTab, mounted]);
+
+  // Scroll spy to update activeTab when scrolling sections on home page
+  useEffect(() => {
+    if (pathname !== '/') return;
+
+    const handleScroll = () => {
+      if (isClickScrolling.current) return;
+
+      const scrollY = window.scrollY;
+      if (scrollY < 200) {
+        setActiveTab('home');
+        return;
+      }
+
+      const sections = ['top-picks', 'services', 'fleet', 'why-us'];
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 260 && rect.bottom >= 100) {
+            setActiveTab(sectionId);
+            return;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [pathname]);
 
   // Prevent background body scroll when mobile sidebar is open
   useEffect(() => {
@@ -57,16 +144,40 @@ export default function Navbar({ onBookClick }: NavbarProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [mobileMenuOpen, mounted]);
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    if (typeof window !== 'undefined' && window.location.pathname === '/') {
-      e.preventDefault();
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: NavItem) => {
+    setActiveTab(item.id);
+
+    if (item.id === 'contact') {
       setMobileMenuOpen(false);
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    if (item.id === 'home') {
+      setMobileMenuOpen(false);
+      if (pathname === '/') {
+        e.preventDefault();
+        isClickScrolling.current = true;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => {
+          isClickScrolling.current = false;
+        }, 800);
       }
-    } else {
+      return;
+    }
+
+    if (item.sectionId) {
       setMobileMenuOpen(false);
+      if (pathname === '/') {
+        e.preventDefault();
+        isClickScrolling.current = true;
+        const el = document.getElementById(item.sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+        setTimeout(() => {
+          isClickScrolling.current = false;
+        }, 800);
+      }
     }
   };
 
@@ -81,66 +192,45 @@ export default function Navbar({ onBookClick }: NavbarProps) {
               <span className="font-black text-lg sm:text-2xl tracking-tight text-zinc-950 leading-none">
                 UTTARAKHAND
               </span>
-              <span className="text-[10px] sm:text-xs font-semibold tracking-widest text-zinc-500 group-hover:text-blue-600 transition-colors uppercase mt-1">
+              <span className="text-[10px] sm:text-xs font-semibold tracking-widest text-zinc-500 group-hover:text-[#155DFC] transition-colors uppercase mt-1">
                 Taxi Service
               </span>
             </Link>
 
-            {/* Center Pill Navigation Menu */}
-            <nav className="hidden lg:flex items-center bg-zinc-100/90 border border-zinc-200/80 rounded-full p-1.5 shadow-xs">
-              <Link
-                href="/"
-                className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-colors ${
-                  pathname === '/'
-                    ? 'bg-zinc-950 text-white shadow-xs'
-                    : 'text-zinc-600 hover:text-zinc-950'
-                }`}
-              >
-                Home
-              </Link>
+            {/* Center Pill Navigation Menu with Animated Sliding Pill */}
+            <nav
+              ref={navContainerRef}
+              className="relative hidden lg:flex items-center bg-zinc-100/90 border border-zinc-200/80 rounded-full p-1.5 shadow-xs"
+            >
+              {/* Animated Sliding Background Pill */}
+              <div
+                className="absolute top-1.5 bottom-1.5 rounded-full bg-[#155DFC] transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none shadow-sm shadow-[#155DFC]/25"
+                style={{
+                  transform: `translateX(${pillStyle.left}px)`,
+                  width: `${pillStyle.width}px`,
+                  opacity: pillStyle.width > 0 ? 1 : 0
+                }}
+              />
 
-              <Link
-                href="/#why-us"
-                onClick={(e) => scrollToSection(e, 'why-us')}
-                className="text-zinc-600 hover:text-zinc-950 px-3.5 py-1.5 text-xs font-medium transition-colors"
-              >
-                About Us
-              </Link>
-
-              <Link
-                href="/#fleet"
-                onClick={(e) => scrollToSection(e, 'fleet')}
-                className="text-zinc-600 hover:text-zinc-950 px-3.5 py-1.5 text-xs font-medium transition-colors"
-              >
-                Our Fleet
-              </Link>
-
-              <Link
-                href="/#services"
-                onClick={(e) => scrollToSection(e, 'services')}
-                className="text-zinc-600 hover:text-zinc-950 px-3.5 py-1.5 text-xs font-medium transition-colors"
-              >
-                Our Services
-              </Link>
-
-              <Link
-                href="/#top-picks"
-                onClick={(e) => scrollToSection(e, 'top-picks')}
-                className="text-zinc-600 hover:text-zinc-950 px-3.5 py-1.5 text-xs font-medium transition-colors"
-              >
-                Airport Transfers
-              </Link>
-
-              <Link
-                href="/contact"
-                className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-colors ${
-                  pathname === '/contact'
-                    ? 'bg-zinc-950 text-white shadow-xs'
-                    : 'text-zinc-600 hover:text-zinc-950'
-                }`}
-              >
-                Contact Us
-              </Link>
+              {NAV_ITEMS.map((item) => {
+                const isActive = activeTab === item.id;
+                return (
+                  <Link
+                    key={item.id}
+                    ref={(el) => {
+                      if (el) itemRefs.current.set(item.id, el);
+                      else itemRefs.current.delete(item.id);
+                    }}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item)}
+                    className={`relative z-10 rounded-full px-4 py-1.5 text-xs font-semibold transition-colors duration-200 cursor-pointer select-none ${
+                      isActive ? 'text-white' : 'text-zinc-600 hover:text-zinc-950'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* Right Action Buttons: Search + Book Cab */}
@@ -160,7 +250,7 @@ export default function Navbar({ onBookClick }: NavbarProps) {
               <button
                 type="button"
                 onClick={onBookClick}
-                className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-5 py-2.5 text-xs font-semibold shadow-md shadow-blue-600/20 transition-all cursor-pointer active:scale-95"
+                className="bg-[#155DFC] hover:bg-[#124ecf] text-white rounded-full px-5 py-2.5 text-xs font-semibold shadow-md shadow-[#155DFC]/20 transition-all cursor-pointer active:scale-95"
               >
                 Book A Cab
               </button>
@@ -217,7 +307,7 @@ export default function Navbar({ onBookClick }: NavbarProps) {
                   <span className="font-black text-xl tracking-tight text-zinc-950 leading-none">
                     UTTARAKHAND
                   </span>
-                  <span className="text-[10px] font-bold tracking-widest text-blue-600 uppercase mt-1">
+                  <span className="text-[10px] font-bold tracking-widest text-[#155DFC] uppercase mt-1">
                     Taxi Service
                   </span>
                 </Link>
@@ -239,105 +329,46 @@ export default function Navbar({ onBookClick }: NavbarProps) {
                 </p>
 
                 <nav className="flex flex-col space-y-1.5">
-                  <Link
-                    href="/"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-sm font-semibold transition-all ${
-                      pathname === '/'
-                        ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20'
-                        : 'text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div
-                        className={`w-8 h-8 rounded-xl flex items-center justify-center ${
-                          pathname === '/' ? 'bg-white/20 text-white' : 'bg-zinc-100 text-zinc-600'
+                  {NAV_ITEMS.map((item) => {
+                    const isActive = activeTab === item.id;
+                    const IconComponent =
+                      item.id === 'home'
+                        ? Home
+                        : item.id === 'why-us'
+                        ? ShieldCheck
+                        : item.id === 'fleet'
+                        ? Car
+                        : item.id === 'services'
+                        ? Briefcase
+                        : item.id === 'top-picks'
+                        ? Plane
+                        : Mail;
+
+                    return (
+                      <Link
+                        key={item.id}
+                        href={item.href}
+                        onClick={(e) => handleNavClick(e, item)}
+                        className={`flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-sm font-semibold transition-all ${
+                          isActive
+                            ? 'bg-[#155DFC] text-white shadow-md shadow-[#155DFC]/20'
+                            : 'text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950'
                         }`}
                       >
-                        <Home className="w-4 h-4" />
-                      </div>
-                      <span>Home</span>
-                    </div>
-                    <ChevronRight className={`w-4 h-4 ${pathname === '/' ? 'text-white/80' : 'text-zinc-400'}`} />
-                  </Link>
-
-                  <Link
-                    href="/#why-us"
-                    onClick={(e) => scrollToSection(e, 'why-us')}
-                    className="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-sm font-semibold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 transition-all"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-zinc-100 text-zinc-600 flex items-center justify-center">
-                        <ShieldCheck className="w-4 h-4" />
-                      </div>
-                      <span>About Us</span>
-                    </div>
-                    <ChevronRight className="w-4 h-4 text-zinc-400" />
-                  </Link>
-
-                  <Link
-                    href="/#fleet"
-                    onClick={(e) => scrollToSection(e, 'fleet')}
-                    className="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-sm font-semibold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 transition-all"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-zinc-100 text-zinc-600 flex items-center justify-center">
-                        <Car className="w-4 h-4" />
-                      </div>
-                      <span>Our Fleet</span>
-                    </div>
-                    <ChevronRight className="w-4 h-4 text-zinc-400" />
-                  </Link>
-
-                  <Link
-                    href="/#services"
-                    onClick={(e) => scrollToSection(e, 'services')}
-                    className="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-sm font-semibold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 transition-all"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-zinc-100 text-zinc-600 flex items-center justify-center">
-                        <Briefcase className="w-4 h-4" />
-                      </div>
-                      <span>Our Services</span>
-                    </div>
-                    <ChevronRight className="w-4 h-4 text-zinc-400" />
-                  </Link>
-
-                  <Link
-                    href="/#top-picks"
-                    onClick={(e) => scrollToSection(e, 'top-picks')}
-                    className="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-sm font-semibold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 transition-all"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-zinc-100 text-zinc-600 flex items-center justify-center">
-                        <Plane className="w-4 h-4" />
-                      </div>
-                      <span>Airport Transfers</span>
-                    </div>
-                    <ChevronRight className="w-4 h-4 text-zinc-400" />
-                  </Link>
-
-                  <Link
-                    href="/contact"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-sm font-semibold transition-all ${
-                      pathname === '/contact'
-                        ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20'
-                        : 'text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div
-                        className={`w-8 h-8 rounded-xl flex items-center justify-center ${
-                          pathname === '/contact' ? 'bg-white/20 text-white' : 'bg-zinc-100 text-zinc-600'
-                        }`}
-                      >
-                        <Mail className="w-4 h-4" />
-                      </div>
-                      <span>Contact Us</span>
-                    </div>
-                    <ChevronRight className={`w-4 h-4 ${pathname === '/contact' ? 'text-white/80' : 'text-zinc-400'}`} />
-                  </Link>
+                        <div className="flex items-center gap-3">
+                          <div
+                            className={`w-8 h-8 rounded-xl flex items-center justify-center ${
+                              isActive ? 'bg-white/20 text-white' : 'bg-zinc-100 text-zinc-600'
+                            }`}
+                          >
+                            <IconComponent className="w-4 h-4" />
+                          </div>
+                          <span>{item.label}</span>
+                        </div>
+                        <ChevronRight className={`w-4 h-4 ${isActive ? 'text-white/80' : 'text-zinc-400'}`} />
+                      </Link>
+                    );
+                  })}
                 </nav>
               </div>
 
@@ -357,7 +388,7 @@ export default function Navbar({ onBookClick }: NavbarProps) {
                     setMobileMenuOpen(false);
                     if (onBookClick) onBookClick();
                   }}
-                  className="w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white py-3.5 text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/25 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full rounded-full bg-[#155DFC] hover:bg-[#124ecf] text-white py-3.5 text-xs sm:text-sm font-semibold shadow-md shadow-[#155DFC]/25 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>Book Your Cab Now</span>
                   <ArrowRight className="w-4 h-4" />

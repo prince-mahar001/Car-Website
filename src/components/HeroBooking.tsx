@@ -155,7 +155,7 @@ export default function HeroBooking({ onInitiateBooking }: HeroBookingProps) {
           <button
             type="button"
             onClick={handleOpenBooking}
-            className="rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs sm:text-sm px-7 py-3.5 shadow-md shadow-blue-600/25 transition-all cursor-pointer active:scale-95"
+            className="rounded-full bg-[#155DFC] hover:bg-[#124ecf] text-white font-medium text-xs sm:text-sm px-7 py-3.5 shadow-md shadow-[#155DFC]/25 transition-all cursor-pointer active:scale-95"
           >
             Book Your Cab
           </button>
